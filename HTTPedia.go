@@ -2,6 +2,7 @@ package HTTPedia
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 )
 
@@ -10,26 +11,22 @@ type StatusCode struct {
 	Description string `json:"description"`
 }
 
-func GetStatusCode(code int) (string, error) {
-	statusCodesFromFile, err := parseJson("status_codes.json")
+func GetStatusCode(code int) (*StatusCode, error) {
+	statusCodesFromFile, err := parseStatusCodeFile("status_codes.json")
 	if err != nil {
-		return "", err
+		return nil, err
 	}
 
-	returnValue := StatusCode{}
-
-	if len(statusCodesFromFile) > 0 {
-		for _, statusCode := range statusCodesFromFile {
-			if statusCode.Code == code {
-				returnValue = statusCode
-			}
+	for _, statusCode := range statusCodesFromFile {
+		if statusCode.Code == code {
+			return &statusCode, nil
 		}
 	}
 
-	return returnValue.Description, nil
+	return nil, fmt.Errorf("status code not found: %d", code)
 }
 
-func parseJson(filename string) ([]StatusCode, error) {
+func parseStatusCodeFile(filename string) ([]StatusCode, error) {
 	statusCodes := []StatusCode{}
 
 	file, err := os.ReadFile(filename)

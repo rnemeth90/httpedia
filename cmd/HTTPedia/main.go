@@ -11,6 +11,7 @@ import (
 
 var (
 	statusCode int
+	showHelp   bool
 )
 
 type config struct {
@@ -19,6 +20,7 @@ type config struct {
 
 func init() {
 	pflag.IntVarP(&statusCode, "statuscode", "s", 0, "Status Code")
+	pflag.BoolVarP(&showHelp, "help", "h", false, "Show help")
 	pflag.Usage = usage
 	pflag.ErrHelp = nil
 }
@@ -35,8 +37,13 @@ func usage() {
 
 func main() {
 	pflag.Parse()
-	var statusCode int
 
+	if showHelp {
+		pflag.Usage()
+		return
+	}
+
+	var statusCode int
 	nonPflagArgs := pflag.Args()
 	if len(nonPflagArgs) >= 1 {
 		s, err := strconv.Atoi(nonPflagArgs[0])

@@ -46,6 +46,7 @@ jobs:
         fi
         go mod tidy
         go build -o HTTPedia -ldflags "-X main.Version=${GITHUB_REF_NAME} -X main.BuiltBy=github-actions" main.go
+        ls -lisa
         mv HTTPedia builds/
         ls -lisa builds/
 

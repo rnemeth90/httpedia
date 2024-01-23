@@ -47,12 +47,12 @@ jobs:
         go mod tidy
         go build -o HTTPedia -ldflags "-X main.Version=${GITHUB_REF_NAME} -X main.BuiltBy=github-actions" main.go
 
-        if [ ! -d "builds" ]; then
-          mkdir "builds"
+        if [ ! -d "/tmp/builds" ]; then
+          mkdir -p "/tmp/builds"
         fi
 
-        mv HTTPedia builds/
-        ls -lisa builds/
+        mv HTTPedia /tmp/builds/
+        ls -lisa /tmp/builds/
 
     - run: git version
     - run: git branch
@@ -90,7 +90,7 @@ jobs:
       with:
         name: ${{ env.GITHUB_REF_NAME }}
         tag: ${{ env.GITHUB_REF_NAME }}
-        artifacts: builds/HTTPedia
+        artifacts: /tmp/builds/HTTPedia
         bodyFile: "body.log"
         token: ${{ secrets.GITHUB_TOKEN }}
         removeArtifacts: true

@@ -37,18 +37,18 @@ func usage() {
 
 func main() {
 	pflag.Parse()
+	nonPflagArgs := pflag.Args()
 
-	if showHelp {
+	if showHelp || len(nonPflagArgs) == 0 && statusCode == 0 {
 		pflag.Usage()
 		return
 	}
 
-	var statusCode int
-	nonPflagArgs := pflag.Args()
 	if len(nonPflagArgs) >= 1 {
 		s, err := strconv.Atoi(nonPflagArgs[0])
 		if err != nil {
 			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
 		}
 		statusCode = s
 	}

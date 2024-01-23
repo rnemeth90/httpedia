@@ -90,7 +90,7 @@ jobs:
       with:
         name: ${{ env.GITHUB_REF_NAME }}
         tag: ${{ env.GITHUB_REF_NAME }}
-        artifacts: HTTPedia
+        artifacts: builds/HTTPedia
         bodyFile: "body.log"
         token: ${{ secrets.GITHUB_TOKEN }}
         removeArtifacts: true

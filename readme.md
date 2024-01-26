@@ -34,13 +34,12 @@ Contributions to HTTPedia are welcome! Please refer to our [contribution guideli
 
 ## To Do
 - [ ] Implement basic functionality for HTTP status code lookup.
-- [ ] Add detailed descriptions for common status codes.
 - [ ] Extend the database to include less common status codes.
 - [ ] Enhance output formatting and add additional information for each status code.
 - [ ] Add support for custom status code databases.
 
 ## Version History
-* 0.1
+* 1.0.0
     * Initial Release
 
 ## License

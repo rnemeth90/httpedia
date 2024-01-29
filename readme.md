@@ -1,4 +1,4 @@
-# HTTPedia [![build-release-binary](https://github.com/rnemeth90/HTTPedia/actions/workflows/build.yaml/badge.svg)](https://github.com/rnemeth90/HTTPedia/actions/workflows/build.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/rnemeth90/HTTPedia/)](https://goreportcard.com/report/github.com/rnemeth90/HTTPedia/)
+# HTTPedia [![build-release-binary](https://github.com/rnemeth90/HTTPedia/actions/workflows/build.yaml/badge.svg)](https://github.com/rnemeth90/HTTPedia/actions/workflows/build.yaml) [![Go Report Card](https://goreportcard.com/badge/github.com/rnemeth90/HTTPedia)](https://goreportcard.com/report/github.com/rnemeth90/HTTPedia)
 
 ## Overview
 HTTPedia is a command-line tool designed to provide descriptions and details for HTTP status codes. It's an invaluable resource for developers and system administrators for quick reference and debugging HTTP responses.
